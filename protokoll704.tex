@@ -93,10 +93,38 @@ Der Impulssatz zeigt, dass zusätzlich ein Teil des Quantenimpulses von einem we
 \newline\newline
 Die Gewichtung der drei hauptsächlich aufgetretenen Effekte ist abhängig von der Quantenenergie. Abbildung \ref{a1} zeigt die Extinktionskoeffizienten am Beispiel des Absorbers Germanium. So ist bei den niedrigen Energien der Fotoeffekt dominierend, schon bei mittleren Energien kann er hingegen vernachlässigt werden. Der Compton-Effekt ist bei geringen Energien zwar vorhanden, spielt aber erst bei mittleren Energien eine Rolle. Die Paarbildung setzt erst bei 1 MeV ein, ist aber zunächst vernachlässigbar. Bei 100 MeV findet fast nur noch die Paarbildung statt.
 \subsection{$\beta$-Strahlung}
-$\beta$-Strahlung besteht aus positiven oder negativen Elektronen mit hoher kinetischer Energie. Diese Elektronen werden von Atomkernen mit einer instabilen Anzahl von Protonen oder Neutronen emittiert. Zusätzlich zu dem Elektron wird ein Antineutrino $\overline{\nu}_e$
-\section{Vorbereitung und Durchf\"{u}hrung}
-Hier steht die Vorbereitung und die Durchführung.
-
+\subsubsection{Entstehung und Eigenschaften der $\beta$-Strahlung}
+$\beta$-Strahlung besteht aus positiven oder negativen Elektronen mit hoher kinetischer Energie. Diese Elektronen werden von Atomkernen mit einer instabilen Anzahl von Protonen oder Neutronen emittiert. Zusätzlich zu dem Elektron wird ein Antineutrino $\overline{\nu}_e$ bzw. das Neutrino $\nu_e$ emittiert. Da die Energie, die bei der Kernumwandlung frei wird, statistisch auf das Elektron, das Neutrino und auf den Rückstoßkern verteilt wird, ist das Spektrum eines $\beta$-Strahlers kontinuierlich. Die bei der Kernwandlung freigewordene Energie entspricht dabei der Maximalenergie $E_{max}$ des Elektrons. Durch das emittierte (Anti-)Neutrino wird die Einhaltung aller Erhaltungssätze gewährleistet.
+\subsubsection{Wechselwirkung von $\beta$-Strahlung mit Materie}
+Aufgrund ihrer Ladung und ihrer im Vergleich zu anderen Teilchen geringen Masse ist ein $\beta$-Teilchen für sehr viele Wechselwirkungen verantwortlich. Es treten vor allem drei Prozesse auf, die im Folgenden näher erläutert werden.
+\paragraph{Elastische Streuung am Atomkern}
+Bei dieser sogenannten Rutherford-Streuung werden die $\beta$-Teilchen im Coulombfeld der Atomkerne zum Teil mit großem Winkel abgelenkt. Durch diese Auffächerung der Teilchen wird die Intensität verringert. Darüber werden die Bahnlängen durch die Absorberschicht erheblich größer als die Reichweite der Elektronen. Dieser Effekt ist in Abbildung \ref{a2} dargestellt. Da die elastische Streuung unter relativistischen Geschwindigkeiten stattfindet, müssen die Rutherfordschen Streuformeln mehrfach korrigiert werden. Darauf soll hier aber nicht weiter eingegangen werden.
+\paragraph{Inelastische Streuung am Atomkern}
+Bei der Inelastischen Streuung wird Energie in Form von Bremsstrahlung abgegeben, da die Elektronen im Coulombfeld eines Kernes beschleunigt werden. Die Wahrscheinlichkeit dieses Prozesses wird bestimmt durch den Wirkungsquerschnitt $\sigma{Br}$. Bezogen auf den Atomkern ergibt sich
+\begin{equation}
+\sigma_{Br} = \alpha r_e^2 z^2.
+\label{8}
+\end{equation}
+Folglich spielt die Bremsstrahlung nur bei schweren Atomkernen eine Rolle. Die mittlere in Bremsstrahlung umgewandelte Energie eines $\beta$-Teilchens bei Durchgang durch die Materieschicht beträgt
+\begin{equation}
+E_{Br}[keV] \approx 7*10^{-7}zE_{\beta}^2
+\label{9}
+\end{equation}
+Allerdings ist diese Formel nur für Energien bis ca. 2500 keV gültig. Insgesamt hat die Bremsstrahlung nur einen kleinen Anteil an den Energieverlusten der $\beta$-Teilchen.
+\paragraph{Inelastische Streuung an Elektronen des Absorbermaterials}
+Bei der Absorption von $\beta$-Strahlung müssen Energieverluste bis zur Energie Null erklärt werden. Die daher notwendige dritte Art der Wechselwirkung ist die Inelastische Streuung an Elektronen. Durch diese Streuung werden die Kerne ionisiert und angeregt. Durch die nur geringe Umwandlung von Energie kann ein Elektron viele dieser Wechselwirkungen durchlaufen. Die Wahrscheinlichkeit dieser inelastischen Streuung ist proportional zur Anzahl der Elektronen pro Volumeneinheit. Bei Aluminium und einer Elektronenenergie von 100 keV werden $\beta$-Teilchen schon bei einer Schichtdicke des Aluminiums von ca. 0.15 mm vollständig abgebremst.
+\subsubsection{Die Absorptionskurve von $\beta$-Strahlung}
+Aufgrund der Komplexität der Absorptionsvorgänge bei $\beta$-Strahlung ist die Aufstellung des Zusammenhangs zwischen der Intensität der Strahlung und der Dicke des Absorbers ein hier nicht lösbares Problem. Allerdings zeigt sich, dass für kleine Schichtdicken und natürliche Strahler mit guter Näherung das Apsorptionsgesetz in Formel (\ref{3}) gilt. Ist die Schichtdicke allerdings zu nahe an der maximalen Reichweiter der Elektronen, kann dieses Gesetz nicht angewendet werden. Abbildung \ref{a3} zeigt eine typische Absorptionskurve. Die mit "Untergrund" bezeichnete Strahlenintensität setzt sich aus der Hintergrundstrahlung und der emitierten Bremsstrahlung der Elektronen zusammen. Um an der Absorptionskurve die maximale Reichweite der Elektronen zu bestimmen, verlängert man die beiden geraden Stücke des Graphen und liest die Reichweite im Schnittpunkt ab. Aus dieser Reichweite $R_{max}$ kann man die kernphysikalisch interessante Größe $E_{max}$ ermitteln. Aufgrund der so komplizierten Wechselwirkung ist der Zusammenhang aber nur empirisch. In unserem Experiment gilt
+\begin{equation}
+E_{max} = 1.92\sqrt{R_{max}^2 + 0.22 R_{max}}\, [MeV].
+\label{10}
+\end{equation}
+\section{Vorbereitung und Durchführung}
+\subsection{Aufbau}
+Der grundlegende Versuchsaufbau ist der Abbildung \ref{a4} zu entnehmen. Ein Geiger-Müller-Zählrohr ist verstärkt an einem Zählwerk angeschlossen, die Messzeit ist einstellbar. Zwischen der strahlenden Probe und dem Zählrohr können Absorptionskörper in verschiedenen Stärken befestigt werden. Die Versuchsumgebung ist mit einer Bleiwand abgeschirmt.
+\subsection{Durchführung}
+Bevor die Probe eingesetzt wird, wird zunächst die Hintergrundstrahlung gemessen. Um eine hohe Genauigkeit zu erreichen, wird der Nulleffekt 900 Sekunden lang gemessen. In der folgenden Messung mit der Probe wird die Schichtdicke des Absorbers Schritt für Schritt erhöht, bei der Messung der $\beta$-Strahlung so lange, bis die Zählrate in der statistischen Schwankung konstant bleibt.\newline
+Um eine geringere Strahlenbelastung zu erreichen, misst jede Praktikumsgruppe nur eine Strahlenart. Hier wird die $\beta$-Strahlung gemessen. Die Messwerte zur $\gamma$-Strahlung werden von unserer Partnergruppe bereitgestellt.
 \section{Auswertung}
 \subsection{Bestimmung der Messungenauigkeiten der Zählraten}
 \subsection{}
