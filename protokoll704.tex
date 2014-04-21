@@ -11,6 +11,9 @@
 \usepackage{graphicx}
 \usepackage{paralist}
 \usepackage{selinput}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\sisetup{}
 \SelectInputMappings{%
 adieresis={ä},
 germandbls={ß},
@@ -95,7 +98,40 @@ $\beta$-Strahlung besteht aus positiven oder negativen Elektronen mit hoher kine
 Hier steht die Vorbereitung und die Durchführung.
 
 \section{Auswertung}
+\subsection{Bestimmung der Messungenauigkeiten der Zählraten}
+\subsection{}
+\subsection{Bestimmung der $R_{Max}$ und der maximalen Energie der $\beta$-Strahlung}
+Zur Bestimmung der Absorptionskurve von $\beta$-Strahlung wurde über einen Zeitraum von
+\[
+\Delta t = \SI{60}{\second}
+\]
+gemesse. Die Ergebnisse, sowie die dauraus berechnete Zählrate
+\[
+A = \frac{N}{\Delta t}
+\]
+befinden sich in Tabelle \ref{tab_beta}. In Abbildung \ref{abb_beta} werden diese Daten halblograrithmisch aufgetragen. Es zeigt sich der zu erwartende Kurvenverlauf. Eine lineare Augleichsrechnung
+\[
+y=m x +b
+\]
+wird jeweils für die ersten X Messpunkte sowie für die restlichen Daten ausgeführt. Daraus ergeben sich folgende Werte:
+\begin{table}[h]
+\centering
+\begin{tabular}{cSS}
+	\toprule
+	Gruppe & $m$ & $b$\\
+	\midrule
+	A & -6.88+-0.19e+3 & 6.95+-0.06 \\
+	B & -1.1+-2.6e+02 & 1.0+-0.4\\
+	\bottomrule
+\end{tabular}
 
+\end{table}
+Die X-Koordinate des Schnittpuntes der beiden Ausgleichsgeraden entspricht der maximalen Eindringtiefe $R_{Max}$. Hiermit ergibt sich:
+\begin{equation}
+R_{Max} = \frac{b_2-b_1}{m_1-m_2} = \SI{0.87+-0.08}{\milli\meter}.
+\end{equation}
+
+Aus diesem Wert kann mit Hilfe der empirschen Formel (\ref{})
 \section{Diskussion}
 
 \section{Abbildungsverzeichnis}
