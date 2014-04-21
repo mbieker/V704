@@ -25,7 +25,7 @@ def make_LaTeX_table(data,header, flip= 'false', onedim = 'false'):
         #Make Format
         
         for i in range(col_cnt):
-            output += 'S'
+            output += 'l'
         output += '}\n\\toprule\n{'+ header[0]
         for i in range (1,col_cnt):
             output += '} &{ ' + header[i]
@@ -39,7 +39,7 @@ def make_LaTeX_table(data,header, flip= 'false', onedim = 'false'):
                 if(isinstance(i[j],(int,float,int32))):
                     output += ' & ' + str( i[j])
                 else:
-                    output += ' & ' + str( i[j]).replace('/','')
+                    output += ' & ' + str( i[j])
                 
             output += '\\\\\n'
         output += '\\bottomrule\n\\end{tabular}\n\\label{}\n\\caption{}\n\\end{table}\n'
@@ -74,4 +74,4 @@ def lin_reg(x,y):
     sy = sqrt(((y - m*x - b)**2).sum()/(N-1))
     m_err = sy *sqrt(N/(N*sumxx - sumx**2))
     b_err= m_err * sqrt(sumxx/N)
-    return ufloat(m,m_err), ufloat(b,b_err)
+    return ufloat((m,m_err)), ufloat((b,b_err))
