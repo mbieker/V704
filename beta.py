@@ -43,8 +43,8 @@ xlabel("Schichtdicke [$\mu m$]")
 ylabel("$A$ in [$s^{-1}$]")
 
 errorbar(d_3*1e6, A_3, A_3_err,0,'.', label= "Messwerte")
-plot(x_1*1e6,exp( m_1.n*x_1+b_1.n), label= "Lineare Regession Teil 1")
-plot(x_2*1e6, exp(m_2.n*x_2+b_2.n), label= "Lineare Regession Teil 2")
+plot(x_1*1e6,exp( m_1.n*x_1+b_1.n), label= "Lineare Regession Teil A")
+plot(x_2*1e6, exp(m_2.n*x_2+b_2.n), label= "Lineare Regession Teil B")
 
 plot([R_max.n*1e6], [exp(m_1.n*R_max.n +b_1.n)],'ro', )
 yscale("log")
@@ -56,7 +56,7 @@ savefig("beta_log.png")
 
 # Tabelle erstellen
 
-data = [[int(d_3[i]*1e6),int(N_3[i]), ufloat(A_3[i], A_3_err[i])] for i in range(len(d_3))]
+data = [[int(d_3[i]*1e6),ufloat(N_3[i],sqrt(N_3[i])), ufloat(A_3[i], A_3_err[i])] for i in range(len(d_3))]
 
 header = [ r"$\frac{d}{\si{\micro\meter}}$",r"$N$" , r"$\frac{A}{\si{\second^{-1}}}$"]
 

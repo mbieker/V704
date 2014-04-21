@@ -127,17 +127,84 @@ Bevor die Probe eingesetzt wird, wird zunächst die Hintergrundstrahlung gemesse
 Um eine geringere Strahlenbelastung zu erreichen, misst jede Praktikumsgruppe nur eine Strahlenart. Hier wird die $\beta$-Strahlung gemessen. Die Messwerte zur $\gamma$-Strahlung werden von unserer Partnergruppe bereitgestellt.
 \section{Auswertung}
 \subsection{Bestimmung der Messungenauigkeiten der Zählraten}
-\subsection{}
+\subsection{Bestimmung des Absorptionskoeffizienten $\mu$ von $\gamma$-Strahlung}
+Die Absorptionkurven wurden jeweils für eine Schicht aus Kupfer und einer Schicht aus Blei aufgenommen. Die Tabellen \ref{tab_gamma1}  und \ref{tabn_gamma_2} enthalten die über einen Zeitraum von 
+\[
+\Delta t_{Cu} = \SI{300}{\second}
+\]
+für Kupfer und
+\[
+\Delta t_{Pb} = \SI{100}{\second}
+\]
+für das Blei-Target gemessenen Werte und die entsprechenden Zählraten
+\[
+A = \frac{N}{\Delta t} - A_0.
+\]
+In den Abbildungen \ref{abb_gamma1_lin} und \ref{abb_gamma2_lin} sind die Absorptionskurven für die jeweiligen Metalle linear aufgetragen. Zur Berechnung der Absoprtionskoeffizienten wurden diese Werte auch halblogarithmisch aufgetragen (Abbildungen \ref{abb_gamma1_log} und \ref{abb_gamma2_log}) und eine lineare Ausgleichsrechung 
+\[
+\ln{A} = \mu \cdot d + \ln{A(0)}
+\]
+durchgeführt. Die folgenden Werte wurden bestimmt:
+\begin{table}[h]
+\centering
+\begin{tabular}{rcc}
+
+\toprule
+	Material & $\frac{\mu}{\si{\meter^{-1}}}$ & $\ln{A(0)}$\\
+ \midrule
+	Cu & 22 & 23\\
+	Pb & 32 & 33\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+Hieraus lässt sich durch Anwendung der Exponentialfunktion die Zählrate des Strahlers ohne Abschirmung $A(0)$ berechnen:
+\begin{itemize}
+\item $A_{Cu}(0)$ = \SI{}{\becquerel}
+\item $A_{Pb}(0)$ = \SI{}{\becquerel}.
+
+\end{itemize}
+\paragraph{Theoretische Berechnung von $\mu$}
+Zur Berechnung des Wirkungsqueschnitts $\sigma_{com}$ muss zunächst das Verhältnis von Quantenenergie zur Ruheenergie des Elektrons berechnet werden. Der Vewendete Strahler hat eine Quatenenergie von $E_\gamma = \SI{633}{\kilo\eV}$[Quelle]. Somit ergibt sich für 
+\[
+\epsilon =  \frac{E_\gamma}{m_ec^2} = \num{1.305}.
+\]
+Aus Formel \ref{6} berechnet $\sigma_{com}$ zu
+\[
+\sigma_{com} = \SI{2.76e-29}{\meter\squared}
+\]
+Aus diesem Wert kann aus Formel (\ref{7}). Dazu werden noch die Molare Masse $M$ sowie die Dichte $\rho$ des verwendeten Targets. Die folgende Tabelle zeigt die errechneten Werte:
+\begin{table}[h]
+\centering
+\begin{tabular}{lllll}
+\toprule
+	Material & $Z$ & $\frac{M}{\si{\gram\per\mole}}$ &$\frac{\rho}{\si{\kilo\gram\per\meter\squared}}$ &$\frac{\mu}{\si{\meter^{-1}}}$ \\
+\midrule
+	Cu & 29 &63.546  &8.83 & 0.068\\
+	Pb &82 & 207.2& 11.342 &     \\
+\bottomrule
+\end{tabular}
+
+\end{table} 
 \subsection{Bestimmung der $R_{Max}$ und der maximalen Energie der $\beta$-Strahlung}
 Zur Bestimmung der Absorptionskurve von $\beta$-Strahlung wurde über einen Zeitraum von
 \[
 \Delta t = \SI{60}{\second}
 \]
-gemesse. Die Ergebnisse, sowie die dauraus berechnete Zählrate
+gemessen. Die Ergebnisse, sowie die dauraus berechnete Zählrate
 \[
 A = \frac{N}{\Delta t}
 \]
-befinden sich in Tabelle \ref{tab_beta}. In Abbildung \ref{abb_beta} werden diese Daten halblograrithmisch aufgetragen. Es zeigt sich der zu erwartende Kurvenverlauf. Eine lineare Augleichsrechnung
+befinden sich in Tabelle \ref{tab_beta}. In Abbildung \ref{abb_beta} werden diese Daten halblograrithmisch aufgetragen. Es zeigt sich der zu erwartende Kurvenverlauf. 
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.85]{/home/martin/Dokumente/SS14/Praktikum/V704/beta_log.png}
+\caption{}
+\label{abb_beta}
+\end{figure}
+\newpage
+Eine lineare Augleichsrechnung
 \[
 y=m x +b
 \]
@@ -159,7 +226,11 @@ Die X-Koordinate des Schnittpuntes der beiden Ausgleichsgeraden entspricht der m
 R_{Max} = \frac{b_2-b_1}{m_1-m_2} = \SI{0.87+-0.08}{\milli\meter}.
 \end{equation}
 
-Aus diesem Wert kann mit Hilfe der empirschen Formel (\ref{})
+Aus diesem Wert kann mit Hilfe der empirschen Formel (\ref{10}) bestimmt werden.
+\[
+E_{Max} = 1.92\sqrt{R_{Max}^2+0.22R_{Max}}[\si{\mega\eV}] = \SI{0.0266+-0.0012}{\mega\eV}
+\]
+
 \section{Diskussion}
 
 \section{Abbildungsverzeichnis}
@@ -172,5 +243,83 @@ Aus diesem Wert kann mit Hilfe der empirschen Formel (\ref{})
 \item Tabellen
 \item Auszug aus dem Messheft
 \end{itemize}
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{ScS}
+\toprule
+{{$\frac{d}{\si{\milli\meter}}$} } &{ $N$} &{ { $\frac{A-A_0}{\si{\second^{-1}}}$ } }\\
+\midrule
+3 & 9003 & 29.83+-0.32\\
+5 & 8144 & 26.96+-0.30\\
+8 & 7219 & 23.88+-0.28\\
+10 & 6751 & 22.32+-0.27\\
+13 & 5779 & 19.08+-0.25\\
+15 & 5209 & 17.18+-0.24\\
+18 & 4649 & 15.31+-0.23\\
+\bottomrule
+\end{tabular}
+\label{tab_gamma1}
+\caption{Ergebnisse der Messung des $\gamma$-Strahlers an einem Cu-Target.}
+\end{table}
+
+
+
+\begin{table}
+\centering
+\begin{tabular}{SSS}
+\toprule
+{{$\frac{d}{\si{\milli\meter}}$} } &{ $N$} &{ { $\frac{A-A_0}{\si{\second^{-1}}}$ } }\\
+\midrule
+1 & 3097 & 10.14+-0.32\\
+10 & 1221 & 3.89+-0.30\\
+11 & 1129 & 3.58+-0.28\\
+20 & 495 & 1.47+-0.27\\
+21 & 430 & 1.25+-0.25\\
+30 & 192 & 0.46+-0.24\\
+31 & 188 & 0.44+-0.23\\
+\bottomrule
+\end{tabular}
+\label{Ergebnisse der Messung des $\gamma$-Strahlers an einem Pb-Target.}
+\caption{}
+\end{table}
+
+
+
+\begin{table}
+\centering
+\begin{tabular}{SSS}
+\toprule
+{$\frac{d}{\si{\micro\meter}}$} &{ $N$} &{ $\frac{A}{\si{\second^{-1}}}$ }\\
+\midrule
+102 & 2.942+-0.017e+04 & 490.4+-2.9\\
+126 & 2.578+-0.016e+04 & 429.7+-2.7\\
+153 & 2.163+-0.015e+04 & 360.5+-2.5\\
+160 & 1.984+-0.014e+04 & 330.6+-2.3\\
+199 & 1.642+-0.013e+04 & 273.6+-2.1\\
+252 & 1.197+-0.011e+04 & 199.4+-1.8\\
+301 & 8.83+-0.09e+03 & 147.2+-1.6\\
+338 & 6.19+-0.08e+03 & 103.1+-1.3\\
+399 & 3.34+-0.06e+03 & 55.6+-1.0\\
+444 & 2.60+-0.05e+03 & 43.4+-0.9\\
+481 & 2.42+-0.05e+03 & 40.4+-0.8\\
+483 & 2.38+-0.05e+03 & 39.6+-0.8\\
+491 & 2.50+-0.05e+03 & 41.6+-0.8\\
+\midrule
+1008 & 214.0+-14.6 & 3.57+-0.25\\
+1010 & 123.0+-11.1 & 2.05+-0.19\\
+1527 & 140.0+-11.8 & 2.33+-0.20\\
+1529 & 91.0+-10.0 & 1.52+-0.16\\
+2019 & 144.0+-12.0 & 2.40+-0.20\\
+2027 & 232.0+-15.2 & 3.87+-0.26\\
+2451 & 102.0+-10.1 & 1.70+-0.17\\
+\bottomrule
+\end{tabular}
+\label{tab_beta}
+\caption{Ergebnisse der Messung des $\beta$-Strahlers an einem Al-Target.}
+\end{table}
+
+
 
 \end{document}
