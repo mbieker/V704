@@ -1,5 +1,6 @@
-from numpy import genfromtxt, sqrt, array, log, linspace, exp, pi
+from numpy import genfromtxt, sqrt, array, log, linspace, pi, exp
 from uncertainties import ufloat
+import uncertainties.umath as umath
 from scipy.constants import *
 from matplotlib.pyplot import *
 data = genfromtxt("gamma_data1.csv", delimiter=',', unpack="true")
@@ -17,7 +18,7 @@ def fehler(N,N_0,t,t_0):
 
 def mu_theo(Z, M, rho):
     r_e = 2.82e-15
-    E_gamma = 667e3 * electron_volt
+    E_gamma = 0.662e6 * electron_volt
     N_L = N_A
     eps = E_gamma/(c**2*m_e)
     print eps
@@ -41,7 +42,8 @@ xlabel("Schichtdicke [$m$]")
 ylabel("$A-A_0$ in [$s^{-1}$]")
 xlim(0,0.02)
 ylim(10,32)
-errorbar(d_1,A_1-A_0,A_1_err,0, "x")
+errorbar(d_1,A_1-A_0,A_1_err,0, "x", label="Messwerte")
+legend()
 savefig("gamma1_lin.png")
 
 
@@ -52,14 +54,16 @@ from Tools import lin_reg, make_LaTeX_table
 m_1, b_1 = lin_reg(d_1,log(A_1-A_0))
 
 
-print "mu %s und A(0) = %s" % (m_1,exp(0)**b_1)
+print "mu %s und A(0) = %s" % (m_1,b_1)
+print "A_0:%s " % umath.exp(b_1)
 
 #Plot LinFit
 
 yscale("log")
 ylim(10,100)
 d = linspace(0,0.02)
-plot(d,exp(m_1.n * d+b_1.n))
+plot(d,exp(m_1.n * d+b_1.n), label = "Lineare Regression")
+legend()
 savefig("gamma1_log.png")
 
 #Latex Tabelle erzeugen
@@ -92,7 +96,8 @@ yscale("linear")
 xlabel("Schichtdicke [$m$]")
 ylabel("$A-A_0$ in [$s^{-1}$]")
 
-errorbar(d_2,A_2-A_0,A_2_err,0, "x")
+errorbar(d_2,A_2-A_0,A_2_err,0, "x", label ="Messwerte")
+legend()
 savefig("gamma2_lin.png")
 
 
@@ -102,15 +107,17 @@ savefig("gamma2_lin.png")
 m_1, b_1 = lin_reg(d_2,log(A_2-A_0))
 
 
-print "mu_2 %s und A_2(0) = %s" % (m_1,exp(0)**b_1)
+print "mu_2 %s und lnA_2(0) = %s" % (m_1,b_1)
+print "A_0:%s " % umath.exp(b_1)
 
 #Plot LinFit
 
-yscale("log")
+yscale("log" )
 
 d = linspace(0, 0.035)
-plot(d,exp(m_1.n * d+b_1.n))
+plot(d,exp(m_1.n * d+b_1.n),label = "Lineare Regression")
 xlim(0,0.035)
+legend()
 savefig("gamma2_log.png")
 
 #Latex Tabelle erzeugen

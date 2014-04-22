@@ -35,9 +35,9 @@ x_2 = linspace(0,2500e-6)
 R_max = (b_2-b_1)/(m_1-m_2)
 
 print "R_Max: %s mm " % (R_max*1e3)
-
+R_max *= 1e2
 E_Max = 1.92*(R_max**2+0.22*R_max)**0.5 
-
+R_max *= 1e-2
 print "E_max : %s MeV" % E_Max
 xlabel("Schichtdicke [$\mu m$]")
 ylabel("$A$ in [$s^{-1}$]")

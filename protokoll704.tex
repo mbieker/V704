@@ -8,10 +8,11 @@
 \usepackage{amssymb}
 \usepackage{inputenc}
 \usepackage{rotating} 
+\usepackage{here}
 \usepackage{graphicx}
 \usepackage{paralist}
 \usepackage{selinput}
-\usepackage{siunitx}
+\usepackage[separate-uncertainty=true]{siunitx}
 \usepackage{booktabs}
 \sisetup{}
 \SelectInputMappings{%
@@ -39,7 +40,7 @@ germandbls={ß},
 \section{Einleitung}
 In diesem Versuch wird die Wechselwirkung energiereicher Strahlung mit Materie untersucht. Es wird $\gamma$-Strahlung als Beispiel für Photonenstrahlung und $\beta$-Strahlung als Beispiel für Teilchenstrahlung betrachtet.
 \section{Theorie}
-Während es bei der $\gamma$-Strahlung gelingt, ein allgemeingültiges exponentielles Absorptionsgesetz aufzustellen, ist die Wechselwirkung von $\beta$-Strahlung mit Materie zu vielfältig für eine einfache Gesetzmäßigkeit. Im Gegensatz zur $\gamma$-Strahlung treten bei den schnellen Elektronen meisst eine Vielzahl von Wechselwirkungen auf, bis die gesamte kinetische Energie der Teilchen umgewandelt wurde. Ein allgemeingültiges Absorptionsgesetz für die $\gamma$-Strahlung zu formulieren ist für den Umfang dieses Versuches zu kompliziert. Stattdessen soll hier die sogenannte Reichweite mit einem einfachen Messverfahren untersucht werden.
+Während es bei der $\gamma$-Strahlung gelingt, ein allgemeingültiges exponentielles Absorptionsgesetz aufzustellen, ist die Wechselwirkung von $\beta$-Strahlung mit Materie zu vielfältig für eine einfache Gesetzmäßigkeit. Im Gegensatz zur $\gamma$-Strahlung treten bei den schnellen Elektronen meist eine Vielzahl von Wechselwirkungen auf, bis die gesamte kinetische Energie der Teilchen umgewandelt wurde. Ein allgemeingültiges Absorptionsgesetz für die $\gamma$-Strahlung zu formulieren ist für den Umfang dieses Versuches zu kompliziert. Stattdessen soll hier die sogenannte Reichweite mit einem einfachen Messverfahren untersucht werden.
 \subsection{$\gamma$-Strahlung}
 \subsubsection{Wirkungsquerschnitt und Absorptionsgesetz}
 Für die Betrachtung der $\gamma$-Strahlung muss zunächst der sogenannte Wirkungsquerschnitt definiert werden. \newline
@@ -77,7 +78,7 @@ Bei der Wechselwirkung eines $\gamma$-Quants mit Materie können viele Wechselwi
 \paragraph{Der Photoeffekt}
 Wenn ein $\gamma$-Quant in Wechselwirkung mit einem Elektron eines Atoms tritt, wird der $\gamma$-Quant vernichtet und das Elektron aus seiner Bindung an den Kern entfernt. Dabei hat das Elektron die kinetische Energie $E_B$. $E_B$ ist die Teilenergie des $\gamma$-Quants, die nicht für das Lösen des Elektrons umgewandelt wurde. Daher tritt der Photoeffekt nicht bei $\gamma$-Quanten mit einer Energie, die kleiner als die Auslöseenergie ist, auf. Bei Anwendung des Impuls-Satzes stellt man fest, dass das Atom einen Teil des Quantenimpulses aufnehmen muss. Daraus folgt, dass die Absorption des Quanten in der innersten Schale und bei schweren Atomen am häufigsten sind. Die durch den Photoeffekt entstehenden Lücken in den Schalen werden durch den Übergang von Elektronen höherer Schalen aufgefüllt, dabei wird ein Röntgenquant oder ein Auger-Elektron emittiert.
 \paragraph{Der Compton-Effekt}
-Beim Compton-Effekt wird der $\gamma$-Quant an einem freien Elektron gestreut. Dieser Effekt verursacht eine Energie- und Richtungsänderung des gestreuten $\gamma$-Quantens. Aus dem Energie- und dem Impulssatz folgt zwar, dass der Quant nie seine ganze Energie abgeben kann, trotzdem nimmt die Intensität des $\gamma$-Strahls ab, da der Quant gestreut wird.
+Beim Compton-Effekt wird der $\gamma$-Quant an einem freien Elektron gestreut. Dieser Effekt verursacht eine Energie- und Richtungsänderung des gestreuten $\gamma$-Quants. Aus dem Energie- und dem Impulssatz folgt zwar, dass der Quant nie seine ganze Energie abgeben kann, trotzdem nimmt die Intensität des $\gamma$-Strahls ab, da der Quant gestreut wird.
 \begin{equation}
 \sigma_{com} = 2\pi r_e^2\left(\frac{1+\epsilon}{\epsilon^2} \left( \frac{2(1+\epsilon)}{1+2\epsilon}-\frac{1}{\epsilon}ln(1+2\epsilon) \right) + \frac{1}{2\epsilon}ln(1+2\epsilon) - \frac{1+3\epsilon}{(1+2\epsilon)^2} \right)
 \label{6}
@@ -91,16 +92,30 @@ Formel (\ref{6}) zeigt den Wirkungsquerschnitt $\sigma_{com}$ für die Comptonst
 Die sogenannte Paarbildung kann auftreten, wenn die $\gamma$-Energie größer ist als die doppelte Ruhemasse des Elektrons ist.
 Der Impulssatz zeigt, dass zusätzlich ein Teil des Quantenimpulses von einem weiteren Stoßpartner übernommen werden muss. Meistens übernehmen die Atomkerne des Absorbermaterials diesen Restimpuls. $\sigma_p \sim z^2$ lässt sich mit Hilfe der Quantenmechanik zeigen.
 \newline\newline
-Die Gewichtung der drei hauptsächlich aufgetretenen Effekte ist abhängig von der Quantenenergie. Abbildung \ref{a1} zeigt die Extinktionskoeffizienten am Beispiel des Absorbers Germanium. So ist bei den niedrigen Energien der Fotoeffekt dominierend, schon bei mittleren Energien kann er hingegen vernachlässigt werden. Der Compton-Effekt ist bei geringen Energien zwar vorhanden, spielt aber erst bei mittleren Energien eine Rolle. Die Paarbildung setzt erst bei 1 MeV ein, ist aber zunächst vernachlässigbar. Bei 100 MeV findet fast nur noch die Paarbildung statt.
+Die Gewichtung der drei hauptsächlich aufgetretenen Effekte ist abhängig von der Quantenenergie. Abbildung \ref{a1} zeigt die Extinktionskoeffizienten am Beispiel des Absorbers Germanium. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{/home/martin/Dokumente/SS14/Praktikum/V704/theorie.png}
+\caption{Energieabhängigkeit des Absorptionskoeffizienten $\mu$ für Germanium getrennt nach den verschiedenen Wechselwirkungsmechanismen sowie Totaleffekt [1]}
+\label{a1}
+\end{figure}
+So ist bei den niedrigen Energien der Fotoeffekt dominierend, schon bei mittleren Energien kann er hingegen vernachlässigt werden. Der Compton-Effekt ist bei geringen Energien zwar vorhanden, spielt aber erst bei mittleren Energien eine Rolle. Die Paarbildung setzt erst bei \SI{1}{MeV} ein, ist aber zunächst vernachlässigbar. Bei \SI{100}{MeV}findet fast nur noch die Paarbildung statt.
 \subsection{$\beta$-Strahlung}
 \subsubsection{Entstehung und Eigenschaften der $\beta$-Strahlung}
 $\beta$-Strahlung besteht aus positiven oder negativen Elektronen mit hoher kinetischer Energie. Diese Elektronen werden von Atomkernen mit einer instabilen Anzahl von Protonen oder Neutronen emittiert. Zusätzlich zu dem Elektron wird ein Antineutrino $\overline{\nu}_e$ bzw. das Neutrino $\nu_e$ emittiert. Da die Energie, die bei der Kernumwandlung frei wird, statistisch auf das Elektron, das Neutrino und auf den Rückstoßkern verteilt wird, ist das Spektrum eines $\beta$-Strahlers kontinuierlich. Die bei der Kernwandlung freigewordene Energie entspricht dabei der Maximalenergie $E_{max}$ des Elektrons. Durch das emittierte (Anti-)Neutrino wird die Einhaltung aller Erhaltungssätze gewährleistet.
 \subsubsection{Wechselwirkung von $\beta$-Strahlung mit Materie}
 Aufgrund ihrer Ladung und ihrer im Vergleich zu anderen Teilchen geringen Masse ist ein $\beta$-Teilchen für sehr viele Wechselwirkungen verantwortlich. Es treten vor allem drei Prozesse auf, die im Folgenden näher erläutert werden.
 \paragraph{Elastische Streuung am Atomkern}
-Bei dieser sogenannten Rutherford-Streuung werden die $\beta$-Teilchen im Coulombfeld der Atomkerne zum Teil mit großem Winkel abgelenkt. Durch diese Auffächerung der Teilchen wird die Intensität verringert. Darüber werden die Bahnlängen durch die Absorberschicht erheblich größer als die Reichweite der Elektronen. Dieser Effekt ist in Abbildung \ref{a2} dargestellt. Da die elastische Streuung unter relativistischen Geschwindigkeiten stattfindet, müssen die Rutherfordschen Streuformeln mehrfach korrigiert werden. Darauf soll hier aber nicht weiter eingegangen werden.
+Bei dieser sogenannten Rutherford-Streuung werden die $\beta$-Teilchen im Coulombfeld der Atomkerne zum Teil mit großem Winkel abgelenkt. Durch diese Auffächerung der Teilchen wird die Intensität verringert. Darüber werden die Bahnlängen durch die Absorberschicht erheblich größer als die Reichweite der Elektronen. Dieser Effekt ist in Abbildung \ref{a2} dargestellt. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{abb2.png}
+\caption{Veranschaulichung des Unterschiedes zwischen Bahnlänge und Reichweite individueller $\beta$-Teilchen in einer Materieschicht[1]}
+\label{a2}
+\end{figure}
+Da die elastische Streuung unter relativistischen Geschwindigkeiten stattfindet, müssen die Rutherfordschen Streuformeln mehrfach korrigiert werden. Darauf soll hier aber nicht weiter eingegangen werden.
 \paragraph{Inelastische Streuung am Atomkern}
-Bei der Inelastischen Streuung wird Energie in Form von Bremsstrahlung abgegeben, da die Elektronen im Coulombfeld eines Kernes beschleunigt werden. Die Wahrscheinlichkeit dieses Prozesses wird bestimmt durch den Wirkungsquerschnitt $\sigma{Br}$. Bezogen auf den Atomkern ergibt sich
+Bei der inelastischen Streuung wird Energie in Form von Bremsstrahlung abgegeben, da die Elektronen im Coulombfeld eines Kerns beschleunigt werden. Die Wahrscheinlichkeit dieses Prozesses wird bestimmt durch den Wirkungsquerschnitt $\sigma{Br}$. Bezogen auf den Atomkern ergibt sich
 \begin{equation}
 \sigma_{Br} = \alpha r_e^2 z^2.
 \label{8}
@@ -114,21 +129,45 @@ Allerdings ist diese Formel nur für Energien bis ca. 2500 keV gültig. Insgesam
 \paragraph{Inelastische Streuung an Elektronen des Absorbermaterials}
 Bei der Absorption von $\beta$-Strahlung müssen Energieverluste bis zur Energie Null erklärt werden. Die daher notwendige dritte Art der Wechselwirkung ist die Inelastische Streuung an Elektronen. Durch diese Streuung werden die Kerne ionisiert und angeregt. Durch die nur geringe Umwandlung von Energie kann ein Elektron viele dieser Wechselwirkungen durchlaufen. Die Wahrscheinlichkeit dieser inelastischen Streuung ist proportional zur Anzahl der Elektronen pro Volumeneinheit. Bei Aluminium und einer Elektronenenergie von 100 keV werden $\beta$-Teilchen schon bei einer Schichtdicke des Aluminiums von ca. 0.15 mm vollständig abgebremst.
 \subsubsection{Die Absorptionskurve von $\beta$-Strahlung}
-Aufgrund der Komplexität der Absorptionsvorgänge bei $\beta$-Strahlung ist die Aufstellung des Zusammenhangs zwischen der Intensität der Strahlung und der Dicke des Absorbers ein hier nicht lösbares Problem. Allerdings zeigt sich, dass für kleine Schichtdicken und natürliche Strahler mit guter Näherung das Apsorptionsgesetz in Formel (\ref{3}) gilt. Ist die Schichtdicke allerdings zu nahe an der maximalen Reichweiter der Elektronen, kann dieses Gesetz nicht angewendet werden. Abbildung \ref{a3} zeigt eine typische Absorptionskurve. Die mit "Untergrund" bezeichnete Strahlenintensität setzt sich aus der Hintergrundstrahlung und der emitierten Bremsstrahlung der Elektronen zusammen. Um an der Absorptionskurve die maximale Reichweite der Elektronen zu bestimmen, verlängert man die beiden geraden Stücke des Graphen und liest die Reichweite im Schnittpunkt ab. Aus dieser Reichweite $R_{max}$ kann man die kernphysikalisch interessante Größe $E_{max}$ ermitteln. Aufgrund der so komplizierten Wechselwirkung ist der Zusammenhang aber nur empirisch. In unserem Experiment gilt
+Aufgrund der Komplexität der Absorptionsvorgänge bei $\beta$-Strahlung ist die Aufstellung des Zusammenhangs zwischen der Intensität der Strahlung und der Dicke des Absorbers ein hier nicht lösbares Problem. Allerdings zeigt sich, dass für kleine Schichtdicken und natürliche Strahler mit guter Näherung das Apsorptionsgesetz in Formel (\ref{3}) gilt. Ist die Schichtdicke allerdings zu nahe an der maximalen Reichweiter der Elektronen, kann dieses Gesetz nicht angewendet werden. Abbildung \ref{a3} zeigt eine typische Absorptionskurve.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.9]{abb3.png}
+\caption{Absorptionskurve für einen natürlichen $\beta$-Strahler}
+\label{a3}
+\end{figure}
+ Die mit "Untergrund" bezeichnete Strahlenintensität setzt sich aus der Hintergrundstrahlung und der emittierten Bremsstrahlung der Elektronen zusammen. Um an der Absorptionskurve die maximale Reichweite der Elektronen zu bestimmen, verlängert man die beiden geraden Stücke des Graphen und liest die Reichweite im Schnittpunkt ab. Aus dieser Reichweite $R_{max}$ kann man die kernphysikalisch interessante Größe $E_{max}$ ermitteln. Aufgrund der so komplizierten Wechselwirkung ist der Zusammenhang aber nur empirisch. In unserem Experiment gilt
 \begin{equation}
 E_{max} = 1.92\sqrt{R_{max}^2 + 0.22 R_{max}}\, [MeV].
 \label{10}
 \end{equation}
 \section{Vorbereitung und Durchführung}
 \subsection{Aufbau}
-Der grundlegende Versuchsaufbau ist der Abbildung \ref{a4} zu entnehmen. Ein Geiger-Müller-Zählrohr ist verstärkt an einem Zählwerk angeschlossen, die Messzeit ist einstellbar. Zwischen der strahlenden Probe und dem Zählrohr können Absorptionskörper in verschiedenen Stärken befestigt werden. Die Versuchsumgebung ist mit einer Bleiwand abgeschirmt.
+Der grundlegende Versuchsaufbau ist der Abbildung \ref{a4} zu entnehmen. 
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.7]{abb4.png}
+\caption{Schematische Darstellung der Messapparatur für die $\gamma$-Absorption[1]}
+\label{a4}
+\end{figure}
+Ein Geiger-Müller-Zählrohr ist verstärkt an einem Zählwerk angeschlossen, die Messzeit ist einstellbar. Zwischen der strahlenden Probe und dem Zählrohr können Absorptionskörper in verschiedenen Stärken befestigt werden. Die Versuchsumgebung ist mit einer Bleiwand abgeschirmt.
 \subsection{Durchführung}
 Bevor die Probe eingesetzt wird, wird zunächst die Hintergrundstrahlung gemessen. Um eine hohe Genauigkeit zu erreichen, wird der Nulleffekt 900 Sekunden lang gemessen. In der folgenden Messung mit der Probe wird die Schichtdicke des Absorbers Schritt für Schritt erhöht, bei der Messung der $\beta$-Strahlung so lange, bis die Zählrate in der statistischen Schwankung konstant bleibt.\newline
 Um eine geringere Strahlenbelastung zu erreichen, misst jede Praktikumsgruppe nur eine Strahlenart. Hier wird die $\beta$-Strahlung gemessen. Die Messwerte zur $\gamma$-Strahlung werden von unserer Partnergruppe bereitgestellt.
 \section{Auswertung}
 \subsection{Bestimmung der Messungenauigkeiten der Zählraten}
+Da es sich beim radioaktiven Zerfall um einen statistischen Prozess handelt, soll hier die Berechnung der Messunsicherheiten noch einmal behandelt. Der Zerfall der Kerne lässt sich durch eine Poisson-Verteilung beschreiben. Daher beträgt der statistische Fehler der gemessenen Werte
+\begin{equation}
+\Delta N = \sqrt{N}.
+\end{equation} 
+Weil sich die Messapparatur nicht komplett abschirmen lässt, ist der sogenannte Nulleffekt zu berücksichtigen. Das ist die Anzahl der durch Hintergrundstrahlung ausgelösten Zählungen im Geiger-Müller-Zählrohr. Damit ergibt sich für den Fehler der Nettoaktivität $A-A_0$:
+\begin{equation}
+\Delta A = \sqrt{\left(\frac1{\Delta t}\right)^2 \cdot |N| +\left(\frac1{\Delta t_0}\right)^2 \cdot |N_0| }
+\end{equation} 
+Diese Größe wird im Folgenden in den Tabellen und in den Diagrammen (mittels Fehlerbalken) als Messunsicherheit der angegeben Aktivitäten angegeben. 
+\paragraph{Anmerkung} Die Berechnung dieser Fehler, sowie die Erstellung der Diagramme und die lineare Ausgleichsrechnung wurden mit \textsc{Python} durcheführt.  
 \subsection{Bestimmung des Absorptionskoeffizienten $\mu$ von $\gamma$-Strahlung}
-Die Absorptionkurven wurden jeweils für eine Schicht aus Kupfer und einer Schicht aus Blei aufgenommen. Die Tabellen \ref{tab_gamma1}  und \ref{tabn_gamma_2} enthalten die über einen Zeitraum von 
+Die Absorptionskurven wurden jeweils für eine Schicht aus Kupfer und einer Schicht aus Blei aufgenommen. Die Tabellen \ref{tab_gamma1}  und \ref{tabn_gamma_2} enthalten die über einen Zeitraum von 
 \[
 \Delta t_{Cu} = \SI{300}{\second}
 \]
@@ -140,20 +179,48 @@ für das Blei-Target gemessenen Werte und die entsprechenden Zählraten
 \[
 A = \frac{N}{\Delta t} - A_0.
 \]
-In den Abbildungen \ref{abb_gamma1_lin} und \ref{abb_gamma2_lin} sind die Absorptionskurven für die jeweiligen Metalle linear aufgetragen. Zur Berechnung der Absoprtionskoeffizienten wurden diese Werte auch halblogarithmisch aufgetragen (Abbildungen \ref{abb_gamma1_log} und \ref{abb_gamma2_log}) und eine lineare Ausgleichsrechung 
+In den Abbildungen \ref{abb_gamma1_lin} und \ref{abb_gamma2_lin} sind die Absorptionskurven für die jeweiligen Metalle linear aufgetragen. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{/home/martin/Dokumente/SS14/Praktikum/V704/gamma1_lin.png}
+\caption{Linearer Plot der gemessenen Aktivität in Abhängigkeit von der Schichtdicke $d$ für das Cu-Target}
+\label{abb_gamma1_lin}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{/home/martin/Dokumente/SS14/Praktikum/V704/gamma2_lin.png}
+\caption{Linearer Plot der gemessenen Aktivität in Abhängigkeit von der Schichtdicke $d$ für das Pb-Target}
+\label{abb_gamma2_lin}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{/home/martin/Dokumente/SS14/Praktikum/V704/gamma1_log.png}
+\caption{Halblogarithmischer Plot der gemessenen Aktivität in Abhängigkeit von der Schichtdicke $d$ für das Cu-Target}
+\label{abb_gamma1_log}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{/home/martin/Dokumente/SS14/Praktikum/V704/gamma2_log.png}
+\caption{Halb-logarithmischer Plot der gemessenen Aktivität in Abhängigkeit von der Schichtdicke $d$ für das Pb-Target}
+\label{abb_gamma2_log}
+\end{figure}
+\noindent
+Zur Berechnung der Absorptionskoeffizienten wurden diese Werte auch halb-logarithmisch aufgetragen (Abbildungen \ref{abb_gamma1_log}  und \ref{abb_gamma2_log}) und eine lineare Ausgleichsrechnung 
 \[
 \ln{A} = \mu \cdot d + \ln{A(0)}
 \]
 durchgeführt. Die folgenden Werte wurden bestimmt:
 \begin{table}[h]
 \centering
-\begin{tabular}{rcc}
+\begin{tabular}{lll}
 
 \toprule
-	Material & $\frac{\mu}{\si{\meter^{-1}}}$ & $\ln{A(0)}$\\
- \midrule
-	Cu & 22 & 23\\
-	Pb & 32 & 33\\
+	Material & $\frac{\mu}{\si{\meter^{-1}}} $& $\ln{A(0)}$ \\
+ \midrule 
+ 	Cu & \num{44.6+-0.9} & \num{3.529+-0.011}\\
+	Pb & \num{-05.3+-1.3}  & \num{2.430+-0.027}\\
+
 \bottomrule
 \end{tabular}
 \end{table}
@@ -161,20 +228,20 @@ durchgeführt. Die folgenden Werte wurden bestimmt:
 \noindent
 Hieraus lässt sich durch Anwendung der Exponentialfunktion die Zählrate des Strahlers ohne Abschirmung $A(0)$ berechnen:
 \begin{itemize}
-\item $A_{Cu}(0)$ = \SI{}{\becquerel}
-\item $A_{Pb}(0)$ = \SI{}{\becquerel}.
+\item $A_{Cu}(0)$ = \SI{34.1+-0.4}{\becquerel}
+\item $A_{Pb}(0)$ = \SI{11.4+-0.3 }{\becquerel}.
 
 \end{itemize}
 \paragraph{Theoretische Berechnung von $\mu$}
-Zur Berechnung des Wirkungsqueschnitts $\sigma_{com}$ muss zunächst das Verhältnis von Quantenenergie zur Ruheenergie des Elektrons berechnet werden. Der Vewendete Strahler hat eine Quatenenergie von $E_\gamma = \SI{633}{\kilo\eV}$[Quelle]. Somit ergibt sich für 
+Zur Berechnung des Wirkungsquerschnitts $\sigma_{com}$ muss zunächst das Verhältnis von Quantenenergie zur Ruheenergie des Elektrons berechnet werden. Der Verwendete Strahler ${}^{137}$Cs  hat eine Quantenenergie von $E_\gamma = \SI{0.662}{\kilo\eV}$[2]. Somit ergibt sich für 
 \[
-\epsilon =  \frac{E_\gamma}{m_ec^2} = \num{1.305}.
+\epsilon =  \frac{E_\gamma}{m_ec^2} = \num{1.3}.
 \]
 Aus Formel \ref{6} berechnet $\sigma_{com}$ zu
 \[
 \sigma_{com} = \SI{2.76e-29}{\meter\squared}
 \]
-Aus diesem Wert kann aus Formel (\ref{7}). Dazu werden noch die Molare Masse $M$ sowie die Dichte $\rho$ des verwendeten Targets. Die folgende Tabelle zeigt die errechneten Werte:
+Aus diesem Wert kann aus Formel (\ref{7}). Dazu werden noch die Molare Masse $M$ sowie die Dichte $\rho$ des verwendeten Targets. Die folgende Tabelle zeigt die berechneten Werte:
 \begin{table}[h]
 \centering
 \begin{tabular}{lllll}
@@ -182,7 +249,7 @@ Aus diesem Wert kann aus Formel (\ref{7}). Dazu werden noch die Molare Masse $M$
 	Material & $Z$ & $\frac{M}{\si{\gram\per\mole}}$ &$\frac{\rho}{\si{\kilo\gram\per\meter\squared}}$ &$\frac{\mu}{\si{\meter^{-1}}}$ \\
 \midrule
 	Cu & 29 &63.546  &8.83 & 0.068\\
-	Pb &82 & 207.2& 11.342 &     \\
+	Pb &82 & 207.2& 11.342 & 0.075    \\
 \bottomrule
 \end{tabular}
 
@@ -192,11 +259,11 @@ Zur Bestimmung der Absorptionskurve von $\beta$-Strahlung wurde über einen Zeit
 \[
 \Delta t = \SI{60}{\second}
 \]
-gemessen. Die Ergebnisse, sowie die dauraus berechnete Zählrate
+gemessen. Die Ergebnisse, sowie die daraus berechnete Zählrate
 \[
 A = \frac{N}{\Delta t}
 \]
-befinden sich in Tabelle \ref{tab_beta}. In Abbildung \ref{abb_beta} werden diese Daten halblograrithmisch aufgetragen. Es zeigt sich der zu erwartende Kurvenverlauf. 
+befinden sich in Tabelle \ref{tab_beta}. In Abbildung \ref{abb_beta} werden diese Daten halb-logarithmisch aufgetragen. Es zeigt sich der zu erwartende Kurvenverlauf. 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.85]{/home/martin/Dokumente/SS14/Praktikum/V704/beta_log.png}
@@ -204,11 +271,11 @@ befinden sich in Tabelle \ref{tab_beta}. In Abbildung \ref{abb_beta} werden dies
 \label{abb_beta}
 \end{figure}
 \newpage
-Eine lineare Augleichsrechnung
+Eine lineare Ausgleichsrechnung
 \[
-y=m x +b
+\ln{A} = m\cdot d + b
 \]
-wird jeweils für die ersten X Messpunkte sowie für die restlichen Daten ausgeführt. Daraus ergeben sich folgende Werte:
+wird jeweils für die ersten 13 Messpunkte sowie für die restlichen Daten ausgeführt. Daraus ergeben sich folgende Werte:
 \begin{table}[h]
 \centering
 \begin{tabular}{cSS}
@@ -221,22 +288,39 @@ wird jeweils für die ersten X Messpunkte sowie für die restlichen Daten ausgef
 \end{tabular}
 
 \end{table}
-Die X-Koordinate des Schnittpuntes der beiden Ausgleichsgeraden entspricht der maximalen Eindringtiefe $R_{Max}$. Hiermit ergibt sich:
+Die X-Koordinate des Schnittpunktes der beiden Ausgleichsgeraden entspricht der maximalen Einringtiefe $R_{Max}$. Hiermit ergibt sich:
 \begin{equation}
 R_{Max} = \frac{b_2-b_1}{m_1-m_2} = \SI{0.87+-0.08}{\milli\meter}.
 \end{equation}
 
-Aus diesem Wert kann mit Hilfe der empirschen Formel (\ref{10}) bestimmt werden.
+Aus diesem Wert kann mit Hilfe der empirischen Formel (\ref{10}) bestimmt werden.
 \[
 E_{Max} = 1.92\sqrt{R_{Max}^2+0.22R_{Max}}[\si{\mega\eV}] = \SI{0.0266+-0.0012}{\mega\eV}
 \]
-
+Der Theoriewert[3] für die Maximalenergie des hier verwendeten Strahlers ${}^{99}$Tc beträgt
+\[
+E_{Max} = \SI{0.314+-0.018}{\mega\eV}.
+\]
+Damit beträgt die relative Abweichung des experimentell ermittelten Werts:
+\[
+\Delta E_{max} = \SI{-6.8}{\percent}
+\]
 \section{Diskussion}
 
-\section{Abbildungsverzeichnis}
+Die im ersten Versuchsteil aufgenommen Daten bestätigen die theoretischen Überlegungen zur $\gamma$-Absorption. Die erwartete exponentielle Abhängigkeit von der Schichtdicke $d$ konnte sowohl für Kupfer, als auch für Blei nachgewiesen werden. Dennoch stimmen ermittelten Werte für $\mu$ nicht mit den berechneten Zahlen für den Compton-Absorptionskoeffizienten $\mu_{com}$ überein. Hieraus kann geschlossen werden, dass der Compton-Effekt bei der Absorption von $\gamma$-Strahlung in dem hier Untersuchten Energiebereich eine untergeordnete Rolle spielt. Problematisch sind auch die unterschiedlichen Werte für die Aktivität ohne Target $A(0)$. Diese sollten theoretisch gleich sein, da es bei einer Schichtdicke von $d = \SI{0}{\milli\meter}$ keine Materialabhängigkeit der Aktivität geben dürfte.
+
+\noindent
+Die Ergebnis der Untersuchung mit $\beta$-Strahlung an Aluminium ist mit einer relativen Abweichung von \SI{-6.8}{\percent} mit dem Theoriewert verträglich.
+
+\noindent
+\newpage
+\section{Quellen}
 \begin{enumerate}[{[}1{]}]
-\item Entnommen der Praktikumsanleitung "Fourier-Analyse und Synthese" der TU Dortmund. Download am 18.01.14 unter:\\
+\item Entnommen der Praktikumsanleitung \textit{Absorption von $\gamma$- und $\beta$-Strahlung} der TU Dortmund. Download am 21.04.14 unter:\\
  \url{http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V351.pdf}
+ \item Entommen aus: \textit{RADIONUCLIDE SAFETY DATA SHEET}, Stanford University.\\ Download am 21.04.14 unter:\\
+\url{http://www.stanford.edu/dept/EHS/prod/researchlab/radlaser/RSDS_sheets/Cs-137.pdf}
+ \item Kaplan, Irving, \textit{Nuclear Physics}, New York: Addison-Wesley, 1964.
 \end{enumerate}
 \section{Anhang}
 \begin{itemize}
@@ -281,8 +365,8 @@ E_{Max} = 1.92\sqrt{R_{Max}^2+0.22R_{Max}}[\si{\mega\eV}] = \SI{0.0266+-0.0012}{
 31 & 188 & 0.44+-0.23\\
 \bottomrule
 \end{tabular}
-\label{Ergebnisse der Messung des $\gamma$-Strahlers an einem Pb-Target.}
-\caption{}
+\label{tab_gamma2}
+\caption{Ergebnisse der Messung des $\gamma$-Strahlers an einem Pb-Target.}
 \end{table}
 
 
