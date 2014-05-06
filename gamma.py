@@ -19,12 +19,11 @@ def fehler(N,N_0,t,t_0):
 def mu_theo(Z, M, rho):
     r_e = 2.82e-15
     E_gamma = 0.662e6 * electron_volt
-    N_L = N_A
     eps = E_gamma/(c**2*m_e)
-    print eps
-    sigma = 2 * pi * r_e**2 *((1+eps)/eps**2 *(2*(1+eps)/(1+2*eps)-1/eps*log(1+2*eps)+0.5/eps*log(1+2*eps)- (1+3*eps)/(1+2*eps)**2))
-    print sigma
-    return Z*N_L*rho*sigma/M
+    bracket1 = 2*(1.0+eps)/(1.0+2*eps)- log(1+2*eps)/eps
+    bracket2 = ((1+eps)/eps**2)*bracket1 + 0.5*log(1+2*eps)/eps - (1+3*eps)/(1+2*eps)**2
+    sigma = 2*pi*r_e**2*bracket2
+    return (Z*N_A*rho*sigma)/M
 t_0 = 900.0 
 t_1 = 300.0
 t_2 = 100.0
@@ -69,7 +68,7 @@ savefig("gamma1_log.png")
 #Latex Tabelle erzeugen
 
 data = array([[int(d_1[i]*1e3),int(N_1[i]), ufloat(A_1[i]-A_0, A_1_err[i]) ]for i in range(7)])
-print make_LaTeX_table(data,  [r'{$\frac{d}{\si{\milli\meter}}$} ',r'$N$' ,r'{ $\frac{A-A_0}{\si{\second^{-1}}}$ }'])
+#print make_LaTeX_table(data,  [r'{$\frac{d}{\si{\milli\meter}}$} ',r'$N$' ,r'{ $\frac{A-A_0}{\si{\second^{-1}}}$ }'])
 
 
 
@@ -118,12 +117,12 @@ d = linspace(0, 0.035)
 plot(d,exp(m_1.n * d+b_1.n),label = "Lineare Regression")
 xlim(0,0.035)
 legend()
-savefig("gamma2_log.png")
+show()
 
 #Latex Tabelle erzeugen
 
 data = array([[int(d_2[i]*1e3),int(N_2[i]), ufloat(A_2[i]-A_0, A_2_err[i]) ]for i in range(7)])
-print make_LaTeX_table(data,  [r'{$\frac{d}{\si{\milli\meter}}$} ',r'$N$' ,r'{ $\frac{A-A_0}{\si{\second^{-1}}}$ }'])
+#print make_LaTeX_table(data,  [r'{$\frac{d}{\si{\milli\meter}}$} ',r'$N$' ,r'{ $\frac{A-A_0}{\si{\second^{-1}}}$ }'])
 
 
 
